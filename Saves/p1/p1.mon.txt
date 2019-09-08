@@ -1,0 +1,2 @@
+["null","Porygon","Pikachu","Sewaddle"]
+["No moves available for monster \"null\"",[["Tackle",6,0],["SpecialMovePorygon",10,3]],[["Tackle",6,0],["SpecialMovePikachu",10,3]],[["Tackle",6,0],["SpecialMoveSewaddle",10,3]]]

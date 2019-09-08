@@ -1,0 +1,34 @@
+$null
+@null;1;1
+$Laybilla
+@Spray;6;0
+@Bite;8;3
+@Kiss;4;5
+$Krudtch
+@Choke Out;7;0
+@Pinch;12;7
+@Strangle;9;4
+$Devile
+@Tackle;6;0
+@Obscene Bide;5;2
+@Tear;12;6
+$Cultosaurus Erectus
+@Monsters;5;0
+@Rolling Pulse;8;4
+@Unknown Tongue;10;6
+@Deadliner;16;10
+@Divine Wind;23;19
+@Black Blade;42;26
+@Bloodrush;53;31
+@Hillbloom;65;41
+$Galardia
+@Snare;8;0
+@Flight;14;7
+@Beacon;18;9
+@Talon Dance;28;15
+@Train Of Light;36;24
+@Holy Wrap;49;34
+$Hossarito
+@Tackle;6;0
+@Waft;9001;0
+&

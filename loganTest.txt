@@ -1,0 +1,36 @@
+$xXX_godSlaeyr_XXx
+@Yemonic;6662;1
+$Ladybug
+@Tackle;6;0
+@Fly;10;3
+@Kiss;4;5
+$Paperclip
+@Strangle;6;0
+@Pinch;12;7
+$Devile
+@Tackle;6;0
+$Lohgan
+@Tackle;6;0
+@Swallow;10;4
+@Lego Gun;15;6
+$Nigger
+@Steal;5;7
+@Be Black;5;12
+$Retards
+@Tackle;6;0
+@Aspergers;4;123
+$Roni
+@Shekel;6;0
+@B Jude;69;8
+$Galardia
+@Snare;8;0
+@Flight;14;7
+@Beacon;18;9
+@Talon Dance;28;15
+@Train Of Light;36;24
+@Holy Wrap;49;34
+$Hossarito
+@Tackle;6;0
+$Smegma
+@Tackle;6;0
+&

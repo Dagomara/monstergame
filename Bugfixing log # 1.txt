@@ -1,0 +1,178 @@
+What is your name? mike
+You got a new monster with specie ID 2. It's a Paperclip!
+Enter your monster's name. awekjfklsjfelk;
+You got a new monster with specie ID 1. It's a Ladybug!
+Enter your monster's name. sadf
+You got a new monster with specie ID 2. It's a Paperclip!
+Enter your monster's name. gay
+
+
+clearScreen() called
+
+
+Mike's Awekjfklsjfelk; is battling enemy Paperclip!
+
+
+======================================
+        Mike      's Awekjfklsjfelk;:
+    25/25 HP
+    lvl 1
+    0/25 XP
+======================================
+
+
+======================================
+        Enemy Paperclip      :
+    25/25 HP
+    lvl 1
+    0/25 XP
+======================================
+Press ENTER to continue.
+
+
+clearScreen() called
+
+
+======================================
+        Enemy Paperclip      :
+    25/25 HP
+    lvl 1
+    0/25 XP
+======================================
+
+
+======================================
+        Mike      's Awekjfklsjfelk;:
+    25/25 HP
+    lvl 1
+    0/25 XP
+======================================
+
+Index: Move:           Raw Damage:
+1      Strangle        6
+
+What will Awekjfklsjfelk; do?
+1
+x = 1
+Awekjfklsjfelk; used Strangle for 6 damage!
+Paperclip used Strangle for 6 damage!
+Press ENTER to continue.
+
+
+clearScreen() called
+
+
+======================================
+        Enemy Paperclip      :
+    19/25 HP
+    lvl 1
+    0/25 XP
+======================================
+
+
+======================================
+        Mike      's Awekjfklsjfelk;:
+    19/25 HP
+    lvl 1
+    0/25 XP
+======================================
+
+Index: Move:           Raw Damage:
+1      Strangle        6
+
+What will Awekjfklsjfelk; do?
+1
+x = 1
+Awekjfklsjfelk; used Strangle for 6 damage!
+Paperclip used Strangle for 6 damage!
+Press ENTER to continue.
+
+
+clearScreen() called
+
+
+======================================
+        Enemy Paperclip      :
+    13/25 HP
+    lvl 1
+    0/25 XP
+======================================
+
+
+======================================
+        Mike      's Awekjfklsjfelk;:
+    13/25 HP
+    lvl 1
+    0/25 XP
+======================================
+
+Index: Move:           Raw Damage:
+1      Strangle        6
+
+What will Awekjfklsjfelk; do?
+1
+x = 1
+Awekjfklsjfelk; used Strangle for 6 damage!
+Paperclip used Strangle for 6 damage!
+Press ENTER to continue.
+
+
+clearScreen() called
+
+
+======================================
+        Enemy Paperclip      :
+    7/25 HP
+    lvl 1
+    0/25 XP
+======================================
+
+
+======================================
+        Mike      's Awekjfklsjfelk;:
+    7/25 HP
+    lvl 1
+    0/25 XP
+======================================
+
+Index: Move:           Raw Damage:
+1      Strangle        6
+
+What will Awekjfklsjfelk; do?
+1
+x = 1
+Awekjfklsjfelk; used Strangle for 6 damage!
+Paperclip used Strangle for 6 damage!
+Press ENTER to continue.
+
+
+clearScreen() called
+
+
+======================================
+        Enemy Paperclip      :
+    1/25 HP
+    lvl 1
+    0/25 XP
+======================================
+
+
+======================================
+        Mike      's Awekjfklsjfelk;:
+    1/25 HP
+    lvl 1
+    2/25 XP
+======================================
+You win!
+Command me. exec print(enemy.health)
+1
+
+
+
+
+so fix this and get rid of stringSolver on the showBattleCards.
+
+I fixed it :D
+And I'm writing to myself. Haha.
+	I fixed showBattleCards() and also added nameMaker, which allows for easier name making with a given length.
+It's like stringSolver(), but with establishing variables instead.
