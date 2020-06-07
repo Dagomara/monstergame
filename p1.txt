@@ -1,0 +1,31 @@
+Mike
+null
+$$$hossarito aka self.name
+specie
+xp
+xpreq
+level
+specie name
+health
+maxhealth
+defense
+attack
+potion
+availableMoves should be autodone
+learnedMoves
+%%%
+$$david aka self.name
+specie
+xp
+xpreq
+level
+specie name
+health
+maxhealth
+defense
+attack
+potion
+availableMoves should be autodone
+learnedMoves
+%%%
+hello there

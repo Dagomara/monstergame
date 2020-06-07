@@ -31,4 +31,6 @@ $Galardia
 $Hossarito
 @Tackle;6;0
 @Waft;9001;0
+$Fari
+@Fart;69;1
 &

@@ -113,12 +113,12 @@ class monster():
             out.output ("You got a new monster with specie ID " + str(self.specie) + ". It's a " + self.speciename + "!")
             self.nickname = box.nameFormatter(box.nameMaker(out.feed("Enter your monster's name. "), 15))
         elif nicked == "ask":
-            littleTempString = "Do you wish to nickname your " +  self.speciename + "? "
+            littleTempString = (("You got a new monster with specie ID " + str(self.specie) + ". It's a " + self.speciename + "!\n")+"Do you wish to nickname your " +  self.speciename + "? ")
             if ((out.feed(littleTempString)).lower() == "yes"):
                 self.nickname = box.nameFormatter(box.nameMaker(out.feed("Enter your monster's name. "), 15))
-                del littleTempString
             else:
                 self.nickname = self.speciename
+            del littleTempString
         else:
             self.nickname = self.speciename
 
@@ -204,10 +204,10 @@ class player():
     def __init__(self):
         self.name = box.nameFormatter(box.nameMaker((out.feed("What is your name? ")),10))
 
-        self.inv = []
-        self.monster1 = monster(1,0)
-        self.monster2 = monster(1,0)
-        self.monster3 = monster(1,0)
+        self.inv = ["null"]
+        self.monster1 = monster("ask",0)
+        self.monster2 = monster("ask",0)
+        self.monster3 = monster("ask",0)
     def showCard(self):
         out.output ("\n\n\n\n\n")
         out.output ("- - = . ~ .-=-=#@#@#@#@#@#@#@#@#@#@#@#@#@#@#@#@#=-=-. ~ . = - -")
@@ -222,6 +222,40 @@ class player():
     def help(self):
         out.output("Vars:\n	name\n	inv\n	monster1\n	monster2\n	monster3\n\nFunctions:\n	showCard()")
 
+#save, load
+def save(location):
+    file = location or "p1.txt"
+    f = open(file, "w+")
+    f.write(p1.name + "\n")
+    tInv=""
+    for i in p1.inv:
+        tInv+=i + "#"
+    f.write(tInv + "\n")
+    del tInv
+    #monster1
+    f.write("$$$"+p1.monster1.nickname + "\n")
+    f.write(p1.monster1.specie + "\n")
+    f.write(p1.monster1.xp + "\n")
+    f.write(p1.monster1.xpreq + "\n")
+    f.write(p1.monster1.level + "\n")
+    f.write(p1.monster1.speciename + "\n")
+    f.write(p1.monster1.health + "\n")
+    f.write(p1.monster1.maxhealth + "\n")
+    f.write(p1.monster1.defense + "\n")
+    f.write(p1.monster1.attack + "\n")
+    f.write(p1.monster1.potion + "\n")
+    tMov=""
+    for i in p1.monster1.learnedMoves:
+        tMov+="#" + i
+    f.write(tMov + "\n%%%")
+    del tMov
+    
+    
+    f.write("hello there")
+    f.close()
+
+
+qms = {}#quick monsters dictionary for use in the console.
 def console():
     consolecont = 1
     while consolecont == 1:
@@ -229,30 +263,50 @@ def console():
         #general executioner
         if ("exec" in request):
             execCode = request[5:len(request)]
-            eval(execCode)
+            try:
+                eval(execCode)
+            except Exception as e:
+                print("Try again: An error was raised in your statement:")
+                print(e)
 
         #battle initialization
-        elif ("battle init" in request):
-            #battle init | your monster | enemy monster{specieID,level}
-            request = request.split()
-            #make the arguents that entertain the generated monster.
-            request[3] = request[3].split(",")
-            request[3] = list(request[3])
-            #make an enemy monster using given arguments
-            enemy = monster(0, int(request[3][0]))
-            enemy.levelTo(int(request[3][1]))
-            enemy.showDetails()
-            #attempt a battle()
-            #out.output (str(request[2]))
-            execCode = ("battle(" + str(request[2]) + ", enemy , 0)")
-            #out.output(execCode)
-            exec(execCode)
-            #battle(p1.monster1, enemy, 0)
+        elif ("rbattle init" in request):  #battle init | your monster | enemy monster{specieID,level}
+            try:
+                request = request.split()
+                #make the arguents that entertain the generated monster.
+                request[3] = request[3].split(",")
+                request[3] = list(request[3])
+                #make an enemy monster using given arguments
+                enemy = monster(0, int(request[3][0]))
+                enemy.levelTo(int(request[3][1]))
+                enemy.showDetails()
+                #attempt a battle()
+                #out.output (str(request[2]))
+                execCode = ("battle(" + str(request[2]) + ", enemy , 0)")
+                #out.output(execCode)
+                exec(execCode)
+                #battle(p1.monster1, enemy, 0)
+            except Exception as e:
+                print("Try again: An error was raised in your statement:")
+                print(e)
 
-        elif (("quit" in request) or ("exit" in request) or ("stop" in request)):
+        #makequickvar is a deprecated thing
+                """
+        elif ("makequickvar" in request[:14]):
+            try:
+                request = request.split()
+                if not(request[2] in qms):
+                    qms[str(request[2])] = getattr(__main__,request[1])
+            except Exception as e:
+                print("Try again: An error was raised in your statement:")
+                print(e)
+                """
+            
+        #exit
+        elif (("quit" in request[:4]) or ("exit" in request[:4]) or ("stop" in request[:4])):
             consolecont = 0
         else:
-            out.output ("Try again.")
+            out.output ("Try again: Entered console command did not work.")
         #leveling up didn't work so now we have the beautiful and versatile exec.
         """elif ("level to" in request):
             request = request.split()
@@ -281,7 +335,7 @@ def attack(m1, move, m2):
         m2.health = 0
     #enemy.showBattleCard(1)
 
-def xpAdder(m1, m2):
+def xpAdder(m1, m2): #does xp math comparing two monsters. m1 is the one gaining xp.
         if m1.level < m2.level:
             m1.xp += math.floor(m2.level * 1.35) * m1.level
         elif m1.level > m2.level:
@@ -354,8 +408,12 @@ def battle(m1,m2,pvp):
 
 #out.output (box.stringSolver(5, "Jon") + "{}")
 #out.output (box.stringSolver(7, "ashkiabaiibelfd") + "{}")
-p1 = player()
-enemy = monster(0,0)
+import pickle
+p1 = pickle.load( open( "save.p", "rb" ) )
+p1.showCard()
+#save(0)
+qms={"p1m1": p1.monster1,"p1m2": p1.monster2}
+#enemy = monster(0,0)
 #out.output (enemy.nickname)
 #p1.showCard()
 #p1.monster1.showBattleCard(1)
@@ -368,6 +426,8 @@ enemy = monster(0,0)
 #attack(p1.monster1, 2, enemy)
 #p1.monster1.showMoves()
 #p1.showCard()
+
+#pickle.dump( p1, open( "save.p", "wb" ) )
 console()
 #import os
 #os.system("python Editor.py")
